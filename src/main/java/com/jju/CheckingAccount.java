@@ -1,21 +1,24 @@
-public class CheckingAccount extends BankAccount {
+package com.jju;
 
+public class CheckingAccount extends BankAccount {
     private static final double TRANSACTION_FEE = 1.50;
 
-    public CheckingAccount(double initialBalance) {
-        super(initialBalance);
+    public CheckingAccount(String accountHolder, double initialBalance) {
+        super(accountHolder, initialBalance);
     }
+  // 1. Student Task: Create constructor and call the superclass constructor and ensure balance is valid
+    
 
-    @Override
+   @Override
     public void withdraw(double amount) {
-        double totalAmount = amount + TRANSACTION_FEE;
+        // Define the variable
+        double totalDeduction = amount + TRANSACTION_FEE;
+       // 2. Student Task: Implement withdraw logic here
 
-        // Check if balance can cover both withdrawal and fee
-        if (getBalance() >= totalAmount) {
-            // Reuse parent class logic
-            super.withdraw(totalAmount);
-        } else {
-               System.out.println("Insufficient funds for withdrawal and transaction fee.");
+        if (amount > 0 && balance >= totalDeduction) {
+            super.withdraw(totalDeduction);
         }
     }
+
+    
 }
